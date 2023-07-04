@@ -43,11 +43,8 @@ function Finaller(fifaDizisi) {
 console.log(Finaller(fifaData));
 function Yillar(fifaData3, callback3) {
   let yilaGoreFinal = callback3(fifaData3);
-  let finalYillari = [];
-  for (let i = 0; i < yilaGoreFinal.length; i++);
-  {
-    finalYillari.push(yilaGoreFinal[i].Year);
-  }
+  let finalYillari = yilaGoreFinal.map((y) => y.Year);
+
   return finalYillari;
 
   /* kodlar buraya */
