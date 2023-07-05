@@ -49,7 +49,7 @@ function Yillar(fifaData3, callback3) {
 
   /* kodlar buraya */
 }
-
+console.log("göre 3 ", Yillar(fifaData, Finaller));
 /*  Görev 4: 
 	Bir higher-order fonksiyonunu olan Kazananlar isimli fonksiyona aşağıdakileri uygulayın:  
 	1. fifaData dizisini(array) fonksiyonunun birinci parametresi olarak alacak
@@ -58,9 +58,18 @@ function Yillar(fifaData3, callback3) {
 	💡 İPUCU: Beraberlikler(ties) için şimdilik endişelenmeyin (Detaylı bilgi için README dosyasına bakabilirsiniz.)
 	4. Tüm kazanan ülkelerin isimlerini içeren `kazananlar` adında bir dizi(array) döndürecek(return)  */
 
-function Kazananlar(/* kodlar buraya */) {
-  /* kodlar buraya */
+function Kazananlar(fifaData4, callback4 /* kodlar buraya */) {
+  let maclar = callback4(fifaData4);
+  let kazananlar = maclar.map((y) => {
+    if (y["Home Team Goals"] > y["Away Team Goals"]) {
+      return y["Home Team Name"];
+    } else {
+      return y["Away Team Name"];
+    }
+  });
+  /* kodlar buraya */ return kazananlar;
 }
+console.log(Kazananlar(fifaData, Finaller));
 
 /*  Görev 5: 
 	Bir higher-order fonksiyonu olan YillaraGoreKazananlar isimli fonksiyona aşağıdakileri uygulayın:
@@ -73,10 +82,24 @@ function Kazananlar(/* kodlar buraya */) {
 	💡 İPUCU: her cümlenin adım 4'te belirtilen cümleyle birebir aynı olması gerekmektedir.
 */
 
-function YillaraGoreKazananlar(/* kodlar buraya */) {
+function YillaraGoreKazananlar(
+  fifaData5,
+  Finaller5,
+  Yillar5,
+  Kazananlar5 /* kodlar buraya */
+) {
+  let ulke5 = Kazananlar5(fifaData5, Finaller5);
+  let yil5 = Yillar5(fifaData5, Finaller5);
+
+  const sonuc = yil5.map((x, i) => {
+    const ulke = ulke5[i];
+    const yil = yil5[i];
+    return `${yil} yılında, ${ulke} dünya kupasını kazandı!`;
+  });
+  return sonuc;
   /* kodlar buraya */
 }
-
+console.log(fifaData, Finaller, Yillar, Kazananlar);
 /*  Görev 6: 
 	Bir higher order fonksiyonu olan `OrtalamaGolSayisi` isimli fonksiyona aşağıdakileri uygulayın: 
 	1. Görev 2'de yazdığınız `Finaller` fonksiyonunu birinci parametre olarak alacak; 'fifaData' dizisini argüman olarak eklediğinizden emin olun
