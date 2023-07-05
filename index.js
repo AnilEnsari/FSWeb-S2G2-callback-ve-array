@@ -114,9 +114,18 @@ console.log(fifaData, Finaller, Yillar, Kazananlar);
 	
 */
 
-function OrtalamaGolSayisi(/* kodlar buraya */) {
-  /* kodlar buraya */
+function OrtalamaGolSayisi(fifaFinalData /* kodlar buraya */) {
+  const ortalamaGol = fifaFinalData.reduce((accumulator, currentValue) => {
+    return (
+      accumulator +
+      currentValue["Away Team Goals"] +
+      currentValue["Home Team Goals"]
+    );
+  }, 0);
+  return (ortalamaGol / fifaFinalData.length).toFixed(2);
+  /* kodlar buraya */ return ortalamaGol;
 }
+console.log(OrtalamaGolSayisi(Finaller(fifaData)));
 
 /// EKSTRA ÇALIŞMALAR ///
 
